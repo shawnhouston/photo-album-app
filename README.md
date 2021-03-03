@@ -9,7 +9,7 @@ The purpose of this APP is to demonstrate, what it takes for a developer to inte
 # Build container image
 
 - podman build --tag python-s3-photo-album:latest -f Dockerfile
-- podman push <image ID> quay.libvirt8:8080/shouston/python-s3-photo-album
+- podman push &lt;image ID&gt; quay.libvirt8:8080/shouston/python-s3-photo-album
 
 # Deployment
 
