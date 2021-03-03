@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM quay.libvirt8:8080/shouston/fedora:latest
 
 RUN dnf update -y && \
     dnf install -y python-pip python-devel curl vim

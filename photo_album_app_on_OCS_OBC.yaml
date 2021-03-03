@@ -23,10 +23,10 @@ items:
       local: false
     tags:
     - annotations:
-        openshift.io/imported-from: karansingh/python-s3-photo-album
+        openshift.io/imported-from: shouston/python-s3-photo-album
       from:
         kind: DockerImage
-        name: karansingh/python-s3-photo-album
+        name: quay.libvirt8:8080/shouston/python-s3-photo-album
       generation: null
       importPolicy: {}
       name: latest
@@ -60,7 +60,7 @@ items:
           deploymentconfig: photo-album
       spec:
         containers:
-        - image: karansingh/python-s3-photo-album
+        - image: shouston/python-s3-photo-album
           name: photo-album
           env:
             - name: ENDPOINT_URL
