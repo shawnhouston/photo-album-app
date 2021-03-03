@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
+FROM fedora:latest
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev curl vim
+RUN dnf update -y && \
+    dnf install -y python-pip python-devel curl vim
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
