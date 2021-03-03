@@ -4,7 +4,12 @@ The purpose of this APP is to demonstrate, what it takes for a developer to inte
 
 # The Working
 
-![](https://github.com/ksingh7/openshift-photo-album-app/raw/master/Image-1.png)
+![](http://gitlab.libvirt8/shouston/openshift-photo-album-app/raw/master/Image-1.png)
+
+# Build container image
+
+- podman build --tag python-s3-photo-album:latest -f Dockerfile
+- podman push <image ID> quay.libvirt8:8080/shouston/python-s3-photo-album
 
 # Deployment
 
@@ -28,11 +33,11 @@ This should create an OBC and other stuff needed for the app itself like POD,SVC
 At this point your app is ready to be accessed externally. Grab the URL and browse it
 
 - A simple landing page of the app will appear
-![](https://github.com/ksingh7/openshift-photo-album-app/raw/master/Image-2.jpg)
+![](http://gitlab.libvirt8/shouston/openshift-photo-album-app/raw/master/Image-2.jpg)
 - When you enter the album, you can upload or view your photos
-![](https://github.com/ksingh7/openshift-photo-album-app/raw/master/Image-3.png)
+![](http://gitlab.libvirt8/shouston/openshift-photo-album-app/raw/master/Image-3.png)
 - Finally looks like 
-![](https://github.com/ksingh7/openshift-photo-album-app/raw/master/image-4.jpg)
+![](http://gitlab.libvirt8/shouston/openshift-photo-album-app/raw/master/image-4.jpg)
 
 
 
