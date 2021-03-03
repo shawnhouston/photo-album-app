@@ -1,4 +1,6 @@
 import os
+import os
+import sys
 import boto3
 import urllib3
 #from flask_restful import Api, Resource, reqparse
@@ -61,7 +63,7 @@ if __name__ == '__main__':
         endpoint_url = os.environ['ENDPOINT_URL'],
         aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],
         aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],
-        use_ssl=False,
+#        use_ssl=False,
         verify=False
         )
     
