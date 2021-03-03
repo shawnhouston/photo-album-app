@@ -64,7 +64,7 @@ items:
           name: photo-album
           env:
             - name: ENDPOINT_URL
-              value: 'https://s3-openshift-storage.apps.ocp42.ceph-s3.com'
+              value: 'https://s3-openshift-storage.apps.testme.libvirt8'
             - name: BUCKET_NAME
               valueFrom:
                 configMapKeyRef:
