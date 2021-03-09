@@ -1,12 +1,12 @@
-FROM quay.libvirt8:8080/shouston/fedora:latest
+FROM quay.libvirt8:8080/shouston/ubi8:latest
 
 RUN dnf update -y && \
-    dnf install -y python-pip python-devel curl vim
+    dnf install -y python3-pip platform-python-devel curl vim
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 COPY . /app
 
 
