@@ -1,4 +1,26 @@
 ---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app.kubernetes.io/name: python-s3-photo-album
+  name: python-s3-photo-album
+spec:
+  output:
+    to:
+      kind: DockerImage
+      name: quay.libvirt8:8080/shouston/python-s3-photo-album:latest
+  source:
+    # Expect a local directory to be streamed to OpenShift as a build source
+    type: Binary
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      # Find the image build instructions in ./Dockerfile
+      dockerfilePath: Dockerfile
+...
+---
 apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
@@ -55,7 +77,7 @@ spec:
         name: photo-album
         env:
           - name: ENDPOINT_URL
-            value: 'https://s3-openshift-storage.apps.testme3.libvirt1'
+            value: 'https://s3-openshift-storage.apps.testme.libvirt1'
           - name: BUCKET_NAME
             valueFrom:
               configMapKeyRef:
