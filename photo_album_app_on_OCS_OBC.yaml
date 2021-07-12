@@ -12,8 +12,9 @@ spec:
       name: quay.libvirt8:8080/shouston/python-s3-photo-album:latest
   source:
     # Expect a local directory to be streamed to OpenShift as a build source
-    type: Binary
-    binary: {}
+    type: Git
+    git: 
+      uri: http://gitlab.libvirt8/shouston/openshift-photo-album-app.git
   strategy:
     type: Docker
     dockerStrategy:
