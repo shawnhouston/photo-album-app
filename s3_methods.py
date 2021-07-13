@@ -13,10 +13,10 @@ def download_file(s3, file_name, bucket):
     """
     Function to download a given file from an S3 bucket
     """
-    obj = s3.get_object(Bucket=BUCKET, Key=filename)
+    obj = s3.get_object(Bucket=bucket, Key=file_name)
     output = obj['Body'].read()
     response = make_response(output)
-    response.mimetype = mimetypes.MimeTypes().guess_type(filename)[0]
+    response.mimetype = mimetypes.MimeTypes().guess_type(file_name)[0]
 
     return response
 
