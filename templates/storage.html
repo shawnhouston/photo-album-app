@@ -97,9 +97,11 @@
           {% for item in contents %}
           <div class="gallery">
 
-          <a class="example-image-link" href="{{ item.url }}" data-lightbox="example-1">
-          <img width="250" height="400" src="{{ item.url }}" /> </a>
-          
+          <!-- a class="example-image-link" href="{{ item.url }}" data-lightbox="example-1">
+          <img width="250" height="400" src="{{ item.url }}" /> </a -->
+          <a class="example-image-link" href="/download/{{ item.filename }}" data-lightbox="example-1">
+          <img width="250" height="400" src="/download/{{ item.filename }}" /> </a>
+         
           </div>      
           {% endfor %}
 
