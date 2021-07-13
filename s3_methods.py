@@ -1,3 +1,5 @@
+import mimetypes
+from flask import make_response
 
 def upload_file(s3,file_name, bucket):
     """
