@@ -1,0 +1,6 @@
+oc create secret docker-registry docker-hub \ 
+    --docker-server=docker.io \
+    --docker-username=YOURUSERNAME \ 
+    --docker-password=xxx \ 
+
+oc set build-secret --pull bc/hello-java-spring-boot docker-hub
