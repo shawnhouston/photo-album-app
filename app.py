@@ -37,7 +37,8 @@ def upload():
     if request.method == "POST":
         f = request.files['file']
 #        f.save(f.filename)
-        upload_file(s3, f.filename, BUCKET)
+        if f.filename:
+            upload_file(s3, f.filename, BUCKET)
 
         return redirect("/storage")
 
