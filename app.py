@@ -3,8 +3,9 @@ import os
 import sys
 import boto3
 import urllib3
+import mimetypes
 #from flask_restful import Api, Resource, reqparse
-from flask import Flask, render_template, request, redirect, send_file, url_for
+from flask import Flask, render_template, request, redirect, send_file, url_for, make_response
 from s3_methods import list_files, download_file, upload_file
 
 app = Flask(__name__)
@@ -40,15 +41,16 @@ def upload():
 
         return redirect("/storage")
 
-
 @app.route("/download/<filename>", methods=['GET'])
 def download(filename):
     if request.method == 'GET':
 #        output = download_file(s3, filename, BUCKET)
-        output = "downloads/" + filename
-        s3.download_file(BUCKET, filename, output)
+        obj = s3.get_object(Bucket=BUCKET, Key=filename)
+        output = obj['Body'].read()
+        response = make_response(output)
+        response.mimetype = mimetypes.MimeTypes().guess_type(filename)[0]
 
-        return output
+        return response
 
 
 if __name__ == '__main__':
