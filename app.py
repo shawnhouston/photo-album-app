@@ -44,13 +44,9 @@ def upload():
 @app.route("/download/<filename>", methods=['GET'])
 def download(filename):
     if request.method == 'GET':
-#        output = download_file(s3, filename, BUCKET)
-        obj = s3.get_object(Bucket=BUCKET, Key=filename)
-        output = obj['Body'].read()
-        response = make_response(output)
-        response.mimetype = mimetypes.MimeTypes().guess_type(filename)[0]
+        output = download_file(s3, filename, BUCKET)
 
-        return response
+        return output
 
 
 if __name__ == '__main__':

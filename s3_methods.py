@@ -9,14 +9,16 @@ def upload_file(s3,file_name, bucket):
     return response
 
 
-def download_file(s3,file_name, bucket):
+def download_file(s3, file_name, bucket):
     """
     Function to download a given file from an S3 bucket
     """
-    output = "downloads/{file_name}"
-    s3.Bucket(bucket).download_file(file_name, output)
+    obj = s3.get_object(Bucket=BUCKET, Key=filename)
+    output = obj['Body'].read()
+    response = make_response(output)
+    response.mimetype = mimetypes.MimeTypes().guess_type(filename)[0]
 
-    return output
+    return response
 
 
 def list_files(s3, bucket):
