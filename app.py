@@ -48,7 +48,7 @@ def download(filename):
         output = "downloads/" + filename
         s3.download_file(BUCKET, filename, output)
 
-        return send_file(output)
+        return output
 
 
 if __name__ == '__main__':
