@@ -47,7 +47,7 @@ spec:
       openshift.io/imported-from: shouston/python-s3-photo-album
     from:
       kind: DockerImage
-      name: quay.libvirt8:8080/shouston/python-s3-photo-album
+      name: quay.libvirt8:8080/shouston/python-s3-photo-album:latest
     generation: null
     importPolicy: {}
     name: latest
@@ -79,8 +79,13 @@ spec:
       - image: shouston/python-s3-photo-album
         name: photo-album
         env:
-          - name: ENDPOINT_URL
-            value: 'https://s3-openshift-storage.apps.testme.libvirt1'
+#          - name: ENDPOINT_URL
+#            value: 'https://s3-openshift-storage.apps.testme.libvirt1'
+          - name: BUCKET_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: photo-album
+                key: BUCKET_HOST
           - name: BUCKET_NAME
             valueFrom:
               configMapKeyRef:
