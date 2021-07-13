@@ -45,10 +45,9 @@ def upload():
 def download(filename):
     if request.method == 'GET':
 #        output = download_file(s3, filename, BUCKET)
-        obj = s3.get_object(Bucket=BUCKET, Key=filename)
-        output = obj['Body'].read()
+        s3.download_file(BUCKET, filename, filename)
 
-        return send_file(output, attachment_filename=filename)
+        return send_file(filename)
 
 
 if __name__ == '__main__':
