@@ -48,7 +48,7 @@ def download(filename):
         obj = s3.get_object(Bucket=BUCKET, Key=filename)
         output = obj['Body'].read()
 
-        return send_file(output)
+        return send_file(output, attachment_filename=filename)
 
 
 if __name__ == '__main__':
