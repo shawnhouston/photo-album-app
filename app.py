@@ -45,8 +45,10 @@ def upload():
 def download(filename):
     if request.method == 'GET':
         output = download_file(s3, filename, BUCKET)
+        response = make_response(output)
+        response.mimetype = mimetypes.MimeTypes().guess_type(filename)[0]
 
-        return output
+        return response
 
 
 if __name__ == '__main__':
