@@ -45,9 +45,10 @@ def upload():
 def download(filename):
     if request.method == 'GET':
 #        output = download_file(s3, filename, BUCKET)
-        s3.download_file(BUCKET, filename, filename)
+        output = "downloads/" + filename
+        s3.download_file(BUCKET, filename, output)
 
-        return send_file(filename)
+        return send_file(output)
 
 
 if __name__ == '__main__':
