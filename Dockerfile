@@ -1,4 +1,4 @@
-FROM quay.libvirt8:8080/shouston/ubi8:latest
+FROM registry.access.redhat.com/ubi8:latest
 
 RUN dnf update -y && \
     dnf install -y python3-pip platform-python-devel curl vim

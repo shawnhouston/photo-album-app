@@ -9,19 +9,22 @@ spec:
   output:
     to:
       kind: DockerImage
-      name: quay.libvirt8:8080/shouston/python-s3-photo-album:latest
+      name: python-s3-photo-album:latest
     pushSecret:
       name: push-secret
   source:
     # Expect a local directory to be streamed to OpenShift as a build source
     type: Git
     git: 
-      uri: http://gitlab.libvirt8/shouston/openshift-photo-album-app.git
+      uri: https://github.com/shawnhouston/photo-album-app.git
   strategy:
     type: Docker
     dockerStrategy:
       # Find the image build instructions in ./Dockerfile
       dockerfilePath: Dockerfile
+  triggers:
+  - type: ImageChange
+  - type: ConfigChange
 ...
 ---
 apiVersion: objectbucket.io/v1alpha1
@@ -47,7 +50,7 @@ spec:
       openshift.io/imported-from: shouston/python-s3-photo-album
     from:
       kind: DockerImage
-      name: quay.libvirt8:8080/shouston/python-s3-photo-album:latest
+      name: python-s3-photo-album:latest
     generation: null
     importPolicy:
       scheduled: true
