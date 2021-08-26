@@ -5,8 +5,6 @@ The purpose of this APP is to demonstrate, what it takes for a developer to inte
 
 # Deployment
 
-- Edit `` photo_album_app_on_OCS_OBC.yaml `` and change the following if needed
-  - Update ``ENDPOINT_URL`` environment variable. You can get this using `` oc get route -n openshift-storage``
 - Deploy the App
   - `` oc apply -f photo_album_app_on_OCS_OBC.yaml ``
 
