@@ -8,10 +8,8 @@ metadata:
 spec:
   output:
     to:
-      kind: DockerImage
-      name: python-s3-photo-album:latest
-    pushSecret:
-      name: push-secret
+      kind: ImageStreamTag
+      name: photo-album:latest
   source:
     # Expect a local directory to be streamed to OpenShift as a build source
     type: Git
@@ -39,24 +37,10 @@ spec:
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  labels:
-    app: photo-album
+  annotations:
+    description: Keeps track of changes in the application image
   name: photo-album
-spec:
-  lookupPolicy:
-    local: false
-  tags:
-  - annotations:
-      openshift.io/imported-from: shouston/python-s3-photo-album
-    from:
-      kind: DockerImage
-      name: python-s3-photo-album:latest
-    generation: null
-    importPolicy:
-      scheduled: true
-    name: latest
-    referencePolicy:
-      type: ""
+spec: {}
 ...
 ---
 apiVersion: apps.openshift.io/v1
