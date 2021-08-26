@@ -2,14 +2,6 @@
 
 The purpose of this APP is to demonstrate, what it takes for a developer to interact with OpenShift Container Storage Object Bucket Claim feature and consume Object Storage as a persistent layer.
 
-# The Working
-
-![](http://gitlab.libvirt8/shouston/openshift-photo-album-app/raw/master/Image-1.png)
-
-# Build container image
-
-- podman build --tag python-s3-photo-album:latest -f Dockerfile
-- podman push &lt;image ID&gt; quay.libvirt8:8080/shouston/python-s3-photo-album
 
 # Deployment
 
