@@ -40,7 +40,8 @@ def upload():
         if f.filename:
             filename = os.path.join(app.config['UPLOAD_FOLDER'], f.filename)
             f.save(filename)
-            upload_file(s3, filename, BUCKET)
+#            upload_file(s3, filename, BUCKET)
+            s3.upload_file(filename, BUCKET, f.filename)
 
         return redirect("/storage")
 
