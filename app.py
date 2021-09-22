@@ -54,11 +54,12 @@ def download(filename):
 
 if __name__ == '__main__':
     urllib3.disable_warnings()
-    UPLOAD_FOLDER = "uploads"
+    UPLOAD_FOLDER = "/app/uploads"
     #BUCKET = "obc-test-noobaa-99ad4f8f-8509-4eb2-b73d-ba6a404ada08"
     BUCKET = os.environ['BUCKET_NAME']
     #ALBUM_PASSWORD = os.environ['ALBUM_PASSWORD']
     # export ENDPOINT_URL=https://s3-openshift-storage.apps.ocp42.ceph-s3.com ; export AWS_ACCESS_KEY_ID=ewXH8ErFOXMlfxqqXWoD ; export AWS_SECRET_ACCESS_KEY=2yMWDOTSvYB0BdAJnYW096cR3hmbnCVeyIhQBqfO ; export BUCKET=obc-test-noobaa-99ad4f8f-8509-4eb2-b73d-ba6a404ada08 
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     s3 = boto3.client('s3',
         #endpoint_url='https://s3-openshift-storage.apps.ocp42.ceph-s3.com',
         #aws_access_key_id='ewXH8ErFOXMlfxqqXWoD',
