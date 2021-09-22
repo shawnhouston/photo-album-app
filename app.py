@@ -36,9 +36,10 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-#        f.save(f.filename)
+        filename = os.path.join(app.config['UPLOAD_FOLDER']
+        f.save(filename)
         if f.filename:
-            upload_file(s3, os.path.join(app.config['UPLOAD_FOLDER'], f.filename), BUCKET)
+            upload_file(s3, filename, BUCKET)
 
         return redirect("/storage")
 
