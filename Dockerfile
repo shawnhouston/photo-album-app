@@ -8,7 +8,7 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip3 install -r requirements.txt
 COPY . /app
-RUN chmod 750 /app/uploads
+RUN chmod 770 /app/uploads
 
 ENV BUCKET_NAME "$BUCKET_NAME"
 #ENV ENDPOINT_URL "$ENDPOINT_URL"
